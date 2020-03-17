@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+</head>
+<body>
+    <h1>Alfredo Romeu. Software Engineer</h1>
+    {% if errors %}
+    <p>There was an issue retrieving repos from Github API,
+        please try again later</p>
+    {% endif %}
+    {% for repo in repos %}
+        <h2>{{ repo.name }}</h2>
+        <div><a href="{{ repo.url }}" target="_blank">{{ repo.url }}</a></div>
+        <h3>{{ repo.description }}</h3>
+        <hr>
+    {% endfor %}
+</body>
+</html>
