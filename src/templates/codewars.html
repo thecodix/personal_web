@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+</head>
+<body>
+    <h1>Alfredo Romeu. Software Engineer</h1>
+    {% if errors %}
+    <p>There was an issue retrieving repos from Codewars,
+        please try again later</p>
+    {% endif %}
+    <h3>Leaderboard position: {{ codewars.leaderboard_position }}</h3>
+    <h3>Overall rank name: {{ codewars.overall_rankname }}</h3>
+    <h3>Challenges authored: {{ codewars.challenges_authored }}</h3>
+    <h3>Challenges completed: {{ codewars.challenges_completed }}</h3>
+    <hr>
+    {% for language, stats in codewars.languages.items() %}
+        <h4>{{ language }}</h4>
+        <div>{{ stats.name }}</div>
+        <div>{{ stats.score }}</div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
